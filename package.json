@@ -1,0 +1,91 @@
+{
+  "name": "@dan-build/tender",
+  "version": "0.1.0",
+  "description": "A money input for React that can't get the amount wrong: integer arithmetic, honest paste parsing, locale grouping, and digits that roll.",
+  "author": "dan-build",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests dev",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:package": "publint --strict && attw --pack . --profile node16",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build",
+    "prepublishOnly": "npm run check"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@eslint/js": "^9.39.4",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "happy-dom": "^21.0.4",
+    "lucide-react": "^0.468.0",
+    "publint": "^0.3.25",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tsup": "^9.0.0",
+    "typescript": "~6.0",
+    "typescript-eslint": "^8.58.2",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "keywords": [
+    "money",
+    "currency",
+    "amount",
+    "input",
+    "react",
+    "bigint",
+    "decimal",
+    "intl",
+    "locale",
+    "fintech",
+    "payments",
+    "animation"
+  ],
+  "homepage": "https://github.com/dan-build/tender#readme",
+  "bugs": {
+    "url": "https://github.com/dan-build/tender/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dan-build/tender.git"
+  }
+}
